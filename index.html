@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Key Utility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Key Utility</h1>
+
+        <div class="input-section">
+            <label for="crypto-prefix">Coin Prefix (e.g., BTC, LTC, DOGE, ETH):</label>
+            <input type="text" id="crypto-prefix" placeholder="BTC">
+
+            <label for="key-input">Enter Key (Mnemonic, WIF, Hex, Binary, etc.):</label>
+            <textarea id="key-input" rows="3" placeholder="Enter your key here..."></textarea>
+
+            <label for="key-type">Select Input Key Type (or auto-detect):</label>
+            <select id="key-type">
+                <option value="auto">Auto-Detect</option>
+                <option value="mnemonic">Mnemonic</option>
+                <option value="wif">WIF (Wallet Import Format)</option>
+                <option value="hex">Hexadecimal Private Key</option>
+                <option value="binary">Binary Private Key</option>
+                <!-- Add more specific types as needed -->
+            </select>
+
+            <div id="mnemonic-options" style="display: none;">
+                <label for="derivation-path">Derivation Path (e.g., m/44'/0'/0'/0/0):</label>
+                <input type="text" id="derivation-path" placeholder="m/44'/0'/0'/0/0">
+                <small>Common paths: BTC Legacy (m/44'/0'/0'/0), BTC SegWit (m/49'/0'/0'/0), BTC Native SegWit (m/84'/0'/0'/0), ETH (m/44'/60'/0'/0)</small>
+            </div>
+
+            <button id="calculate-btn">Calculate</button>
+        </div>
+
+        <div class="output-section">
+            <h2>Derived Information:</h2>
+            <div id="results">
+                <p><em>Results will appear here...</em></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cryptographic libraries -->
+    <script src="ethers.js"></script>
+    <script src="bitcoinjs-lib.js"></script>
+    <script src="bitcore-lib-doge.js"></script>
+    <!-- Main application script -->
+    <script src="script.js"></script>
+</body>
+</html>
